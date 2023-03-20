@@ -24,13 +24,22 @@ app.get("/users", (req: Request, res: Response) => {
   res.status(200).send(users);
 });
 
-//getCourseByName
+//geProductByName
 app.get("/product/search", (req: Request, res: Response) => {
   const q = req.query.q as string;
 
   const result = product.filter((products) =>
     products.name.toLowerCase().includes(q.toLowerCase())
   );
+
+  res.status(200).send(result);
+});
+// getProductById
+
+app.get("/product/:id", (req: Request, res: Response) => {
+  const id = req.params.id;
+
+  const result = product.find((products) => products.id === id);
 
   res.status(200).send(result);
 });
@@ -82,5 +91,5 @@ app.post("/purchase", (req: Request, res: Response) => {
 
   purchase.push(newPurchase);
 
-  res.status(201).send("Purchase feito!!");
+  res.status(201).send("Compra realizada com sucesso!!");
 });
