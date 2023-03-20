@@ -32,7 +32,7 @@ export const product: TProduct[] = [
     category: "serviços",
   },
   {
-    id: "01",
+    id: "03",
     name: "Curso do Sistema Kibbe",
     price: 500,
     category: "produtos",
