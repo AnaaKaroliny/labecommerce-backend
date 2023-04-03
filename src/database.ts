@@ -16,25 +16,48 @@ export const users: TUser[] = [
     email: "juliana@user.com",
     password: "julyAstrod3v",
   },
+  {
+    id: "a004",
+    email: "laisregina@user.com",
+    password: "laisAstrod3v",
+  },
 ];
 
 export const product: TProduct[] = [
   {
-    id: "p001",
+    id: "001",
     name: "Análise de Coloração Pessoal",
     price: 500,
     category: PRODUCT_TYPE.SERVICE,
   },
   {
-    id: "p002",
+    id: "002",
     name: "Personal Shopper",
     price: 1500,
     category: PRODUCT_TYPE.SERVICE,
   },
   {
-    id: "p003",
+    id: "003",
     name: "Curso do Sistema Kibbe",
     price: 500,
+    category: PRODUCT_TYPE.COURSE,
+  },
+  {
+    id: "004",
+    name: "Curso de Automaquiagem",
+    price: 1000,
+    category: PRODUCT_TYPE.COURSE,
+  },
+  {
+    id: "005",
+    name: "Kit Skin Care",
+    price: 200,
+    category: PRODUCT_TYPE.SERVICE,
+  },
+  {
+    id: "006",
+    name: "Workshop a Chave do Estilo",
+    price: 300,
     category: PRODUCT_TYPE.COURSE,
   },
 ];
