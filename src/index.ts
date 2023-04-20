@@ -79,6 +79,38 @@ app.get("/purchase", async (req: Request, res: Response) => {
   }
 });
 
+//getProductByName
+
+app.get("/product/search", async (req: Request, res: Response) => {
+  try {
+    const q = req.query.q as string;
+
+    const result = await db.raw(`
+    SELECT * FROM products 
+    WHERE name 
+    LIKE "${"%" + q + "%"}"`);
+
+    if (q !== undefined) {
+      if (q.length < 2) {
+        res
+          .status(400)
+          .send("O Query params deve ter no mínimo 2 caracteres!!");
+        throw new Error("O Query params deve ter no mínimo 2 caracteres!!");
+      }
+    }
+
+    res.status(200).json({ products: result[0] });
+  } catch (error) {
+    console.log(error);
+
+    if (res.statusCode === 200) {
+      res.status(500);
+    }
+
+    res.send(error);
+  }
+});
+
 //getPurchaseById
 
 app.get("/purchase/:id", async (req: Request, res: Response) => {
